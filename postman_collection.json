@@ -1,0 +1,71 @@
+{
+  "info": {
+    "name": "Synthetic Credit Data API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Meta",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/v1/meta",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "meta"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Generate",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"rows\": 10, \"schema_name\": \"default\"}"
+        },
+        "url": {
+          "raw": "{{base_url}}/v1/generate",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "generate"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    }
+  ]
+}
