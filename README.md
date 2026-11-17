@@ -1,3 +1,16 @@
+<!-- ABN-BADGES -->
+# Synthetic Credit Data API
+
+<p align="center">
+  <a href="https://3km-collab.github.io/synthetic-credit-data-api-1/"><img alt="Live Demo" src="https://img.shields.io/badge/Live%20Demo-View%20Site-6366f1?style=for-the-badge"></a>
+  <a href="https://autonomousstudio.gumroad.com/l/icmdfe"><img alt="Download Package" src="https://img.shields.io/badge/Download%20Package-Get%20Now-22d3ee?style=for-the-badge"></a>
+  <img alt="Made by CredSynth" src="https://img.shields.io/badge/by-CredSynth-10b981?style=for-the-badge">
+</p>
+
+[**Live Demo**](https://3km-collab.github.io/synthetic-credit-data-api-1/) · [**Download the package**](https://autonomousstudio.gumroad.com/l/icmdfe)
+
+---
+
 # CredSynth - Synthetic Credit Data API
 
 ## Overview
