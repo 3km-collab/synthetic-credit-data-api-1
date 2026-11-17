@@ -4,8 +4,8 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Synthetic Credit Data API — CredSynth</title>
-<meta name="description" content="Synthetic Credit Data API by CredSynth — privacy-safe synthetic data generation via a clean REST API."/>
-<meta name="keywords" content="Synthetic data generation, REST &amp; batch API, Privacy-safe / GDPR-ready, credsynth, fintech, synthetic-data"/>
+<meta name="description" content="Synthetic Credit Data API by CredSynth — a complete production package: FastAPI service, pytest suite, Docker, Postman collection, automation presets, and 2,500+ ready sample records (CSV + JSON + SQL). Install in 3 steps."/>
+<meta name="keywords" content="fintech, synthetic-data, fastapi, dataset, postman, docker, credit-risk"/>
 <meta name="author" content="CredSynth"/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://3km-collab.github.io/synthetic-credit-data-api-1/"/>
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="CredSynth"/>
 <meta property="og:title" content="Synthetic Credit Data API — CredSynth"/>
-<meta property="og:description" content="Synthetic Credit Data API by CredSynth — privacy-safe synthetic data generation via a clean REST API."/>
+<meta property="og:description" content="Synthetic Credit Data API by CredSynth — a complete production package: FastAPI service, pytest suite, Docker, Postman collection, automation presets, and 2,500+ ready sample records (CSV + JSON + SQL). Install in 3 steps."/>
 <meta property="og:image" content="https://3km-collab.github.io/synthetic-credit-data-api-1/assets/cover.png"/>
 <meta property="og:image:width" content="1280"/>
 <meta property="og:image:height" content="720"/>
@@ -21,10 +21,10 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Synthetic Credit Data API — CredSynth"/>
-<meta name="twitter:description" content="Synthetic Credit Data API by CredSynth — privacy-safe synthetic data generation via a clean REST API."/>
+<meta name="twitter:description" content="Synthetic Credit Data API by CredSynth — a complete production package: FastAPI service, pytest suite, Docker, Postman collection, automation presets, and 2,500+ ready sample records (CSV + JSON + SQL). Install in 3 steps."/>
 <meta name="twitter:image" content="https://3km-collab.github.io/synthetic-credit-data-api-1/assets/cover.png"/>
 <!-- Structured data -->
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Synthetic Credit Data API", "description": "Synthetic Credit Data API by CredSynth — privacy-safe synthetic data generation via a clean REST API.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "url": "https://3km-collab.github.io/synthetic-credit-data-api-1/", "image": "https://3km-collab.github.io/synthetic-credit-data-api-1/assets/cover.png", "keywords": "Synthetic data generation, REST & batch API, Privacy-safe / GDPR-ready, credsynth, fintech, synthetic-data", "brand": {"@type": "Brand", "name": "CredSynth"}, "offers": {"@type": "Offer", "price": "19.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://autonomousstudio.gumroad.com/l/icmdfe"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Synthetic Credit Data API", "description": "Synthetic Credit Data API by CredSynth — a complete production package: FastAPI service, pytest suite, Docker, Postman collection, automation presets, and 2,500+ ready sample records (CSV + JSON + SQL). Install in 3 steps.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "url": "https://3km-collab.github.io/synthetic-credit-data-api-1/", "image": "https://3km-collab.github.io/synthetic-credit-data-api-1/assets/cover.png", "keywords": "fintech, synthetic-data, fastapi, dataset, postman, docker, credit-risk", "brand": {"@type": "Brand", "name": "CredSynth"}, "offers": {"@type": "Offer", "price": "19.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://autonomousstudio.gumroad.com/l/icmdfe"}}</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   html { background:#05060a; }
@@ -77,7 +77,7 @@
     <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.08]">
       Synthetic Credit Data API
     </h1>
-    <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">Synthetic Credit Data API by CredSynth — privacy-safe synthetic data generation via a clean REST API.</p>
+    <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">Synthetic Credit Data API by CredSynth — a complete production package: FastAPI service, pytest suite, Docker, Postman collection, automation presets, and 2,500+ ready sample records (CSV + JSON + SQL). Install in 3 steps.</p>
     <div class="mt-10 flex items-center justify-center gap-3">
       <a href="https://autonomousstudio.gumroad.com/l/icmdfe" class="text-white font-semibold px-7 py-3.5 rounded-xl glow transition hover:opacity-90" style="background:linear-gradient(135deg,#6366f1,#22d3ee)">Buy now — $19</a>
       <a href="#features" class="font-semibold px-7 py-3.5 rounded-xl border border-white/10 text-slate-200 hover:bg-white/5 transition">Explore features</a>
@@ -98,11 +98,10 @@
       <pre class="p-5 text-sm overflow-x-auto"><code id="code" class="text-slate-300">import requests
 
 resp = requests.post(
-    "https://api.example.com/v1/generate",
-    json={"rows": 1000, "schema": "credit_risk"},
+    "http://localhost:8000/v1/generate",
+    json={"rows": 100},
 )
-for row in resp.json()["data"]:
-    print(row["score"], row["default_probability"])</code></pre>
+print(resp.json()["data"][0])</code></pre>
     </div>
   </section>
 
@@ -113,17 +112,17 @@ for row in resp.json()["data"]:
     <div class="grid md:grid-cols-3 gap-5 mt-12">
         <div class="bento p-7">
           <div class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 grid place-items-center mb-4 text-indigo-300"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-          <h3 class="text-lg font-semibold text-white">Synthetic data generation</h3>
+          <h3 class="text-lg font-semibold text-white">Production FastAPI service</h3>
           <p class="mt-2 text-sm text-slate-400 leading-relaxed">Engineered for teams that ship fast without compromising reliability or privacy.</p>
         </div>
         <div class="bento p-7">
           <div class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 grid place-items-center mb-4 text-indigo-300"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3 class="text-lg font-semibold text-white">REST &amp; batch API</h3>
+          <h3 class="text-lg font-semibold text-white">2,500+ ready sample records</h3>
           <p class="mt-2 text-sm text-slate-400 leading-relaxed">Engineered for teams that ship fast without compromising reliability or privacy.</p>
         </div>
         <div class="bento p-7">
           <div class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 grid place-items-center mb-4 text-indigo-300"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></div>
-          <h3 class="text-lg font-semibold text-white">Privacy-safe / GDPR-ready</h3>
+          <h3 class="text-lg font-semibold text-white">Docker + Postman + pytest included</h3>
           <p class="mt-2 text-sm text-slate-400 leading-relaxed">Engineered for teams that ship fast without compromising reliability or privacy.</p>
         </div></div>
   </section>
@@ -137,9 +136,9 @@ for row in resp.json()["data"]:
           <tr><th class="text-left px-6 py-4 font-semibold">Capability</th><th class="px-6 py-4 font-semibold text-indigo-300">CredSynth</th><th class="px-6 py-4 font-semibold">Typical alternative</th></tr>
         </thead>
         <tbody class="divide-y divide-white/5">
-          <tr><td class="px-6 py-4 text-slate-300">Synthetic data generation</td><td class="px-6 py-4 text-center text-emerald-400">✓</td><td class="px-6 py-4 text-center text-slate-500">Varies</td></tr>
-          <tr><td class="px-6 py-4 text-slate-300">REST &amp; batch API</td><td class="px-6 py-4 text-center text-emerald-400">✓</td><td class="px-6 py-4 text-center text-slate-500">Limited</td></tr>
-          <tr><td class="px-6 py-4 text-slate-300">Privacy-safe / GDPR-ready</td><td class="px-6 py-4 text-center text-emerald-400">✓</td><td class="px-6 py-4 text-center text-slate-500">—</td></tr>
+          <tr><td class="px-6 py-4 text-slate-300">Production FastAPI service</td><td class="px-6 py-4 text-center text-emerald-400">✓</td><td class="px-6 py-4 text-center text-slate-500">Varies</td></tr>
+          <tr><td class="px-6 py-4 text-slate-300">2,500+ ready sample records</td><td class="px-6 py-4 text-center text-emerald-400">✓</td><td class="px-6 py-4 text-center text-slate-500">Limited</td></tr>
+          <tr><td class="px-6 py-4 text-slate-300">Docker + Postman + pytest included</td><td class="px-6 py-4 text-center text-emerald-400">✓</td><td class="px-6 py-4 text-center text-slate-500">—</td></tr>
           <tr><td class="px-6 py-4 text-slate-300">One-time price</td><td class="px-6 py-4 text-center text-emerald-400">$19</td><td class="px-6 py-4 text-center text-slate-500">$$$ / mo</td></tr>
         </tbody>
       </table>
