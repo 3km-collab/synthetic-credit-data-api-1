@@ -1,0 +1,19 @@
+{
+  "name": "synthetic-credit-data-api-batch",
+  "version": 1,
+  "nodes": [
+    {
+      "type": "trigger.manual"
+    },
+    {
+      "type": "http.request",
+      "params": {
+        "method": "POST",
+        "url": "http://localhost:8000/v1/generate",
+        "body": {
+          "rows": 2000
+        }
+      }
+    }
+  ]
+}
