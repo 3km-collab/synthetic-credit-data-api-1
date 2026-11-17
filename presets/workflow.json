@@ -1,0 +1,29 @@
+{
+  "name": "synthetic-credit-data-api-workflow",
+  "version": 1,
+  "nodes": [
+    {
+      "type": "trigger.schedule",
+      "params": {
+        "cron": "0 */6 * * *"
+      }
+    },
+    {
+      "type": "http.request",
+      "params": {
+        "method": "POST",
+        "url": "http://localhost:8000/v1/generate",
+        "body": {
+          "rows": 500
+        }
+      }
+    },
+    {
+      "type": "data.export",
+      "params": {
+        "format": "csv",
+        "path": "out/data.csv"
+      }
+    }
+  ]
+}
